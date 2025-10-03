@@ -216,7 +216,6 @@ h5{
     display: flex;
     flex-direction: column;
     /* background-color:#f8f3ef; */
-    align-items: center;
     padding-top: 1.875em;
     padding-bottom: 1.875em;
     color: var(--text);
@@ -224,9 +223,9 @@ h5{
 
 .about-top{
     align-self: flex-start;
-    margin-left: 4.375em;
     display: flex;
     align-items: center;
+    margin-bottom: 1.875em;
 
 }
 .about-top h1{
@@ -238,7 +237,6 @@ h5{
 
 .about-me #brief{
     /* margin: 20px 200px 50px 200px; */
-    width: 70%;
     margin-bottom: 3.125em;
 
 }
@@ -251,7 +249,6 @@ p{
 .about-grid{
     display: grid;
     grid-template-columns: auto auto;
-    width: 70%;
     /* padding: 0.625em; */
     row-gap: 3.125em;
     column-gap: 10%;
@@ -315,7 +312,7 @@ p{
 /* --------------------------------------------- */
 /* WORK SECTION */
 .work-container{
-    width: 80%;
+    width: 100%;
 }
 
 .work-row {
@@ -373,9 +370,6 @@ p{
     flex-direction: column;
     padding-top: 3.125em;
 }
-.pubs-container {
-    width: 100%;
-}
 .pub-item {
     border: 1px solid var(--border);
     border-radius: 1rem;
@@ -413,8 +407,6 @@ p{
     padding: 0.625em;
     row-gap: 1.875em;
     column-gap: 1.25em;
-    align-self: center;
-    width: 90%;
 }
 
 .grid-item {
@@ -518,13 +510,6 @@ p{
     flex-direction: column;
     padding-top: 3.125em;
 }
-.pubs-container {
-    width: 80%;
-    align-self: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 1.25em;
-}
 .pub-item {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -564,7 +549,6 @@ p{
 .form-container {
     display: flex;
     justify-content: center;
-    width: 70%;
 }
 
 /* #in-touch{
@@ -758,4 +742,8 @@ input[type=submit]:hover{
     padding-right: 0;
     padding-left: 0;
   }
+}
+
+.bg-accent{
+    background-color: var(--accent);
 }
