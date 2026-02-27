@@ -643,7 +643,7 @@
                     <h1 class="text">Projects</h1>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 xl:grid-cols-3 xl:gap-8">
-                    <div class="grid-item">
+                    <div class="grid-item" style="position: relative;">
                         <a href="https://github.com/fuota/detect-moveit" target="_blank">
                             <div class="title-project">
                                 <div>
@@ -651,10 +651,25 @@
                                     <h4>Kinova Arm Gen 3</h4>
                                 </div>
                             </div>
-                            <div class="img-container">
+                            <div class="img-container" style="position: relative; flex-direction: column;">
                                 <img src="project/Tablet_UI.jpg" alt="tammy-pic">
+                                <!-- Demo play button below image -->
+                                <div style="display: flex; flex-direction: column; align-items: flex-start; margin-top: 10px;">
+                                    <button id="play-video-btn" style="background: none; color: #2563eb; display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 1rem;">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="#2563eb" style="vertical-align: middle;"><path d="M8 5v14l11-7z"/></svg>
+                                        Demo
+                                    </button>
+                                    <!-- Example: Add more demo buttons here for other videos if needed -->
+                                </div>
                             </div>
                         </a>
+                        <!-- Video Modal -->
+                        <div id="video-modal" style="display:none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.7); align-items: center; justify-content: center;">
+                            <div style="position: relative; background: #222; padding: 24px; border-radius: 12px; max-width: 90vw; max-height: 80vh; display: flex; flex-direction: column; align-items: center;">
+                                <video id="adl-video" src="video/adl-demo.mp4" controls style="max-width: 80vw; max-height: 60vh; background: #000;"></video>
+                                <button id="close-video-btn" style="margin-top: 16px; padding: 8px 20px; background: #e53e3e; color: #fff; border: none; border-radius: 6px; cursor: pointer;">Cancel</button>
+                            </div>
+                        </div>
                     </div>
                     <div class="grid-item">
                         <a href="https://github.com/fuota/misty-helper" target="_blank">
@@ -812,6 +827,24 @@
                         });
 
                         updateProjects();
+
+                        // Video modal logic
+                        const playBtn = document.getElementById('play-video-btn');
+                        const videoModal = document.getElementById('video-modal');
+                        const closeBtn = document.getElementById('close-video-btn');
+                        const video = document.getElementById('adl-video');
+                        if (playBtn && videoModal && closeBtn && video) {
+                            playBtn.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                videoModal.style.display = 'flex';
+                                video.currentTime = 0;
+                                video.play();
+                            });
+                            closeBtn.addEventListener('click', () => {
+                                video.pause();
+                                videoModal.style.display = 'none';
+                            });
+                        }
                     });
                 </script>
             </section>
